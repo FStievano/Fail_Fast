@@ -35,4 +35,4 @@ jobs:
       - name: Simular processo de build
         run: |
           echo "Iniciando build do projeto..."
-          echo "Build finalizado com sucesso!"
+          echo "Build finalizado com sucesso!!"
