@@ -3,25 +3,19 @@ name: Fail Fast Pipeline
 on: [push]
 
 jobs:
-
   validar:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
       - name: Validar codigo
-        run: echo Codigo validado com sucesso
+        run: echo Codigo validado
 
   build:
     runs-on: ubuntu-latest
     needs: validar
-
     steps:
       - uses: actions/checkout@v3
-
       - name: Mostrar mensagem secreta
         run: echo ${{ secrets.MENSAGEM_SECRETA }}
-
       - name: Simular build
-        run: echo Build executado com sucesso
+        run: echo Build executado
