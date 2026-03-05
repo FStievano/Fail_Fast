@@ -1,0 +1,39 @@
+name: Pipeline CI - Fail Fast
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  validar-codigo:
+    name: Validação do Código
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: Simular análise do código
+        run: |
+          echo "Iniciando validação do código..."
+          echo "Código analisado com sucesso"
+
+  simular-build:
+    name: Simulação de Build
+    runs-on: ubuntu-latest
+
+    needs: validar-codigo
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: Mostrar mensagem secreta
+        run: echo "Mensagem secreta: ${{ secrets.MENSAGEM_SECRETA }}"
+
+      - name: Simular processo de build
+        run: |
+          echo "Iniciando build do projeto..."
+          echo "Build finalizado com sucesso!"

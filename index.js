@@ -1,0 +1,1 @@
+console.log("Projeto CI/CD - Fail Fast");
