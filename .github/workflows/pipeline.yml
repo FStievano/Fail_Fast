@@ -6,33 +6,32 @@ on:
       - main
 
 jobs:
-
   validar-codigo:
-    name: Validação do Código
+    name: Validacao do Codigo
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar repositório
+      - name: Clonar repositorio
         uses: actions/checkout@v3
 
-      - name: Simular análise do código
+      - name: Validar codigo
         run: |
-          echo "Iniciando validação do código..."
-          echo "Código analisado com sucesso"
+          echo "Iniciando validacao do codigo..."
+          echo "Codigo analisado com sucesso"
 
   simular-build:
-    name: Simulação de Build
+    name: Simulacao de Build
     runs-on: ubuntu-latest
     needs: validar-codigo
 
     steps:
-      - name: Clonar repositório
+      - name: Clonar repositorio
         uses: actions/checkout@v3
 
       - name: Mostrar mensagem secreta
         run: echo "Mensagem secreta: ${{ secrets.MENSAGEM_SECRETA }}"
 
-      - name: Simular processo de build
+      - name: Simular build
         run: |
           echo "Iniciando build do projeto..."
-          echo "Build finalizado com sucesso!!"
+          echo "Build finalizado com sucesso"
